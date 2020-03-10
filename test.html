@@ -1,0 +1,38 @@
+<div class="A1">
+    <table id="tblCustomers" class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Bugda</th>
+                <th scope="col">Items</th>
+                <th scope="col">Remark</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+                <th scope="col"></th>
+                <th scope="col" style="display:none">Puid</th>
+                <th scope="col" style="display:none">Uid</th>
+                <th scope="col" style="display:none"></th>
+            </tr>
+        </thead>
+        <tbody id="tbTeams" style="background-color:#e4e4e4">
+            @foreach (var item in table)
+            {
+                <tr id="tr-@count">
+                    <td>@Bugda</td>
+                    <td><input type="text" value="@item.Items" /></td>
+                    <td><input type="text" value="@item.Remark" /></td>
+                    <td><input class="total" onkeyup="totalChange('tr-@count')" type="text" value="@item.Amount" align="left" /></td>
+                    <td><input class="total" onkeyup="totalChange('tr-@count')" type="text" value="@item.Price" align="left" /></td>
+                    <td>@item.Total</td>
+                    <td>
+                        <input type="button" class="btn btn-outline-danger" id="btnRem" value="Remove" onclick="Remove(this)" />
+                    </td>
+                    <td style="display:none">@item.Puid</td>
+                    <td style="display:none">@item.Uid</td>
+                    <td style="display:none"><input type="text" value="@item.sctrl" /></td>
+                </tr>
+                count += 1;
+            }
+        </tbody>
+    </table>
+</div>
